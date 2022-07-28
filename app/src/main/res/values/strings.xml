@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Random Meal</string>
+    <string name="button_get_random_meal">Get Random Meal</string>
+    <string name="button_search_recipe">search recipe</string>
+    <string name="hint_enter_meal_name">Enter meal name</string>
+    <string name="hint_enter_recipe">Enter recipe</string>
+    <string name="button_add_meal">Add meal</string>
+    <string name="warning_fill_fields">Meal name must be filled</string>
+    <string name="search_recipe"> recipe</string>
+    <string name="select_an_option">Select an option</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+</resources>

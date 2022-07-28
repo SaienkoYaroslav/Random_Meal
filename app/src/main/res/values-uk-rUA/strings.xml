@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Random Meal</string>
+    <string name="search_recipe">" рецепт"</string>
+    <string name="warning_fill_fields">Вкажіть назву страви</string>
+    <string name="button_add_meal">Додати страву</string>
+    <string name="hint_enter_recipe">Введіть рецепт</string>
+    <string name="hint_enter_meal_name">Введіть назву страви</string>
+    <string name="button_search_recipe">Шукати рецепт в інтернеті</string>
+    <string name="button_get_random_meal">Що приготувати?</string>
+    <string name="select_an_option">Оберіть варіант</string>
+    <string name="edit">Редагувати</string>
+    <string name="delete">Видалити</string>
+</resources>
