@@ -6,8 +6,9 @@
     <string name="hint_enter_recipe">Enter recipe</string>
     <string name="button_add_meal">Add meal</string>
     <string name="warning_fill_fields">Meal name must be filled</string>
-    <string name="search_recipe"> recipe</string>
+    <string name="search_recipe">" recipe"</string>
     <string name="select_an_option">Select an option</string>
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
+    <string name="add_a_few_meals_to_the_list_first">Add a few meals to the list first</string>
 </resources>

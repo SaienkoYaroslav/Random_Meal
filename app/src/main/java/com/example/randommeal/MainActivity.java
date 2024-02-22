@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
     private String recipe;
     private boolean isVisible;
 
+    private Boolean isListEmpty;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
-        if (savedInstanceState !=null) {
+        if (savedInstanceState != null) {
             mealName = savedInstanceState.getString("mealName");
             recipe = savedInstanceState.getString("recipe");
             isVisible = savedInstanceState.getBoolean("isVisible");
@@ -112,22 +115,33 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 List<Meal> mealsList = mDAO.getListMeal();
                 int listSize = mealsList.size();
-                int randomNumber = (int) (Math.random() * listSize);
-                Meal meal = mealsList.get(randomNumber);
-                mealName = meal.getMealName();
-                recipe = meal.getRecipe();
-                tvMealName.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        tvMealName.setText(mealName);
-                    }
-                });
-                tvRecipe.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        tvRecipe.setText(recipe);
-                    }
-                });
+                if (listSize > 0) {
+                    int randomNumber = (int) (Math.random() * listSize);
+                    Meal meal = mealsList.get(randomNumber);
+                    mealName = meal.getMealName();
+                    recipe = meal.getRecipe();
+                    tvMealName.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvMealName.setText(mealName);
+                        }
+                    });
+                    tvRecipe.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            tvRecipe.setText(recipe);
+                        }
+                    });
+                } else {
+                    bSearchOnInternet.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            bSearchOnInternet.setVisibility(View.GONE);
+                            Toast.makeText(MainActivity.this, getString(R.string.add_a_few_meals_to_the_list_first), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    isVisible = false;
+                }
             }
         });
     }
